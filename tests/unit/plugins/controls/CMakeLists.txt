@@ -5,6 +5,7 @@
 
 set(tests
     block_operation
+    busywait_operation
     filter_operation
     fold_left_operation
     fold_right_operation

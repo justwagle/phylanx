@@ -8,6 +8,7 @@
 
 #include <phylanx/plugins/controls/apply.hpp>
 #include <phylanx/plugins/controls/block_operation.hpp>
+#include <phylanx/plugins/controls/busywait_operation.hpp>
 #include <phylanx/plugins/controls/filter_operation.hpp>
 #include <phylanx/plugins/controls/fold_left_operation.hpp>
 #include <phylanx/plugins/controls/fold_right_operation.hpp>

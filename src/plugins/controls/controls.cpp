@@ -13,6 +13,8 @@ PHYLANX_REGISTER_PLUGIN_FACTORY(apply_plugin,
     phylanx::execution_tree::primitives::apply::match_data);
 PHYLANX_REGISTER_PLUGIN_FACTORY(block_operation_plugin,
     phylanx::execution_tree::primitives::block_operation::match_data);
+PHYLANX_REGISTER_PLUGIN_FACTORY(busywait_operation_plugin,
+    phylanx::execution_tree::primitives::busywait::match_data);
 PHYLANX_REGISTER_PLUGIN_FACTORY(filter_operation_plugin,
     phylanx::execution_tree::primitives::filter_operation::match_data);
 PHYLANX_REGISTER_PLUGIN_FACTORY(fold_left_operation_plugin,
