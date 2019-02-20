@@ -55,7 +55,7 @@ namespace phylanx { namespace execution_tree { namespace primitives
             primitive_argument_type busywait::busywait_main(
                     std::uint64_t delay_ns) const
             {
-                    blaze::DynamicVector<std::int64_t> result(1, delay_ns);
+                    blaze::DynamicVector<std::int64_t> result(1, 42);
                     if (delay_ns == 0)
                         return primitive_argument_type{std::move(result)};
 
