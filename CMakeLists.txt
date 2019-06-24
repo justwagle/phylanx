@@ -34,6 +34,31 @@ set(PHYLANX_PACKAGE_NAME Phylanx)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+###################################################################################
+# generate inlining threshold
+add_executable(generate_threshold ${CMAKE_SOURCE_DIR}/src/util/generate_threshold.cpp)
+
+set(threshold_output_file
+${CMAKE_SOURCE_DIR}/phylanx/execution_tree/primitives/inlining_threshold.hpp
+)
+
+add_custom_target(threshold_gen ALL DEPENDS ${threshold_output_file})
+
+add_custom_command(
+  OUTPUT ${threshold_output_file}
+  WORKING_DIRECTORY ${CMAKE_BUILD_DIR}
+  COMMAND generate_threshold ${threshold_output_file}
+  COMMENT "Generating Inlining Threshold"
+  DEPENDS always_rebuild
+)
+
+#dummy target so that threshold_gen is always built
+add_custom_command(
+    OUTPUT always_rebuild
+    COMMAND cmake -E echo
+)
+####################################################################################
+
 ################################################################################
 # CMake configuration
 ################################################################################
@@ -183,6 +208,9 @@ if(PHYLANX_WITH_EXAMPLES)
   include_directories(examples)
   add_subdirectory(examples)
 endif()
+
+# for inlining threshold
+add_phylanx_pseudo_dependencies(core threshold_gen)
 
 ################################################################################
 # Targets related to Python (must come before tests)
