@@ -7,6 +7,7 @@
 #include <phylanx/execution_tree/compiler/primitive_name.hpp>
 #include <phylanx/execution_tree/primitives/base_primitive.hpp>
 #include <phylanx/execution_tree/primitives/primitive_component_base.hpp>
+#include <phylanx/execution_tree/primitives/inlining_threshold.hpp>
 #include <phylanx/util/scoped_timer.hpp>
 
 #include <hpx/include/lcos.hpp>
@@ -527,6 +528,7 @@ namespace phylanx { namespace execution_tree { namespace primitives
     hpx::launch primitive_component_base::select_direct_eval_execution(
         hpx::launch policy) const
     {
+        std::cout<<"Threshold = "<<THRESHOLD<<std::endl;
         // always run this on an HPX thread
         if (hpx::threads::get_self_ptr() == nullptr)
         {
