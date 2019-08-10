@@ -528,7 +528,9 @@ namespace phylanx { namespace execution_tree { namespace primitives
     hpx::launch primitive_component_base::select_direct_eval_execution(
         hpx::launch policy) const
     {
+#ifdef PHYLANX_DEBUG
         std::cout<<"Threshold = "<<THRESHOLD<<std::endl;
+#endif
         // always run this on an HPX thread
         if (hpx::threads::get_self_ptr() == nullptr)
         {
